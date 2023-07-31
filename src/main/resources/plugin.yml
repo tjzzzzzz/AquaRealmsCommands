@@ -1,0 +1,4 @@
+name: AquaRealmCommands
+version: '${project.version}'
+main: me.tj.aquarealmcommands.AquaRealmCommands
+api-version: '1.20'
