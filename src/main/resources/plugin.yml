@@ -2,3 +2,7 @@ name: AquaRealmCommands
 version: '${project.version}'
 main: me.tj.aquarealmcommands.AquaRealmCommands
 api-version: '1.20'
+commands:
+  gmc:
+    description: Gamemode Creative
+    usage: /gmc or /gmc <player>
