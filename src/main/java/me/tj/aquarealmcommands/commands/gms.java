@@ -9,13 +9,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class gmc implements CommandExecutor {
-
+public class gms implements CommandExecutor {
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {
-
-
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (sender instanceof Player) {
 
 
@@ -28,12 +25,12 @@ public class gmc implements CommandExecutor {
 
                 if (args.length == 0) {
 
-                    if (player.getGameMode().equals(GameMode.CREATIVE)) {
+                    if (player.getGameMode().equals(GameMode.SURVIVAL)) {
 
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> You're already in creative mode."));
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> You're already in survival mode."));
                     } else {
-                        player.setGameMode(GameMode.CREATIVE);
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode set to creative."));
+                        player.setGameMode(GameMode.SURVIVAL);
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode set to survival"));
 
                     }
 
@@ -57,13 +54,13 @@ public class gmc implements CommandExecutor {
 
                     String targetname = target.getPlayer().getName();
 
-                    if (target.getGameMode().equals(GameMode.CREATIVE)) {
+                    if (target.getGameMode().equals(GameMode.SURVIVAL)) {
 
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> " + targetname + " is already in creative mode."));
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> " + targetname + " is already in survival mode."));
                     } else {
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode creative set for " + targetname));
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode survival set for " + targetname));
 
-                        target.setGameMode(GameMode.CREATIVE);
+                        target.setGameMode(GameMode.SURVIVAL);
                     }
 
 
@@ -79,5 +76,3 @@ public class gmc implements CommandExecutor {
     }
 
 }
-
-

@@ -9,13 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class gmc implements CommandExecutor {
+public class gmsp implements CommandExecutor {
 
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {
-
-
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (sender instanceof Player) {
 
 
@@ -28,12 +26,12 @@ public class gmc implements CommandExecutor {
 
                 if (args.length == 0) {
 
-                    if (player.getGameMode().equals(GameMode.CREATIVE)) {
+                    if (player.getGameMode().equals(GameMode.SPECTATOR)) {
 
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> You're already in creative mode."));
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> You're already in spectator mode."));
                     } else {
-                        player.setGameMode(GameMode.CREATIVE);
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode set to creative."));
+                        player.setGameMode(GameMode.SPECTATOR);
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode set to spectator"));
 
                     }
 
@@ -41,7 +39,7 @@ public class gmc implements CommandExecutor {
                 } else {
 
 
-                    // Get
+                    // Get the target the user provided
                     String targetName = args[0];
 
 
@@ -57,13 +55,13 @@ public class gmc implements CommandExecutor {
 
                     String targetname = target.getPlayer().getName();
 
-                    if (target.getGameMode().equals(GameMode.CREATIVE)) {
+                    if (target.getGameMode().equals(GameMode.SPECTATOR)) {
 
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> " + targetname + " is already in creative mode."));
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> " + targetname + " is already in spectator mode."));
                     } else {
-                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode creative set for " + targetname));
+                        player.sendMessage(MiniMessage.miniMessage().deserialize("<bold><Aqua>Aqua<white>Realm</bold> Gamemode spectator set for " + targetname));
 
-                        target.setGameMode(GameMode.CREATIVE);
+                        target.setGameMode(GameMode.SPECTATOR);
                     }
 
 
@@ -79,5 +77,3 @@ public class gmc implements CommandExecutor {
     }
 
 }
-
-
